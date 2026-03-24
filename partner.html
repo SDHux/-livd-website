@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become an Approved Partner — LiVD</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon_64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon_180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--near-black:#111111;--charcoal:#1c1c1c;--mid-gray:#666;--light-gray:#aaa;--off-white:#f0ede8;--cream:#e8e4dc;--sand:#c9b99a;--accent:#d4a853;--white:#ffffff;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--off-white);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:28px 60px;background:rgba(10,10,10,0.97);transition:padding 0.4s;}
+nav.scrolled{padding:18px 60px;}
+.nav-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;}
+.nav-logo-mark{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:32px;letter-spacing:0.12em;color:var(--white);line-height:1;}
+.nav-logo-sub{font-family:'Barlow',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.28em;color:var(--sand);text-transform:uppercase;margin-top:4px;}
+.nav-links{display:flex;gap:48px;list-style:none;}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--light-gray);text-decoration:none;transition:color 0.3s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width 0.3s;}
+.nav-links a:hover{color:var(--white);}
+.nav-links a:hover::after{width:100%;}
+
+.page-hero{padding:160px 60px 80px;border-bottom:1px solid rgba(201,185,154,0.1);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);}
+.hero-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.35em;color:var(--accent);text-transform:uppercase;margin-bottom:24px;display:block;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,72px);font-weight:300;line-height:1.1;color:var(--off-white);margin-bottom:20px;}
+.hero-title em{font-style:italic;color:var(--sand);}
+.hero-desc{font-family:'Barlow',sans-serif;font-size:16px;font-weight:300;color:var(--light-gray);line-height:1.8;max-width:580px;}
+
+.form-wrap{max-width:820px;margin:0 auto;padding:80px 60px;}
+
+.section-block{padding:48px 0;border-bottom:1px solid rgba(201,185,154,0.1);}
+.section-block:last-of-type{border-bottom:none;}
+.sec-header{display:flex;align-items:baseline;gap:16px;margin-bottom:32px;}
+.sec-num{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--accent);opacity:0.7;min-width:24px;}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--sand);}
+
+.contact-block{background:rgba(255,255,255,0.02);border:1px solid rgba(201,185,154,0.15);padding:28px;margin-bottom:32px;}
+.contact-block-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);opacity:0.8;margin-bottom:20px;}
+
+.field{margin-bottom:24px;}
+.field:last-child{margin-bottom:0;}
+.field-label{font-family:'Barlow',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.08em;color:var(--light-gray);text-transform:uppercase;margin-bottom:10px;display:block;}
+.field-sub{font-size:11px;color:var(--mid-gray);letter-spacing:0;text-transform:none;margin-left:8px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:600px){.field-row{grid-template-columns:1fr;}}
+
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=number],select,textarea{width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(201,185,154,0.18);color:var(--off-white);font-family:'Barlow',sans-serif;font-size:14px;font-weight:300;padding:13px 16px;outline:none;transition:border-color 0.2s;appearance:none;border-radius:0;}
+input:focus,select:focus,textarea:focus{border-color:rgba(212,168,83,0.5);background:rgba(255,255,255,0.05);}
+input::placeholder,textarea::placeholder{color:rgba(170,170,170,0.35);}
+textarea{resize:vertical;min-height:90px;line-height:1.6;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;cursor:pointer;}
+select option{background:#1c1c1c;color:var(--off-white);}
+
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+@media(max-width:500px){.checks{grid-template-columns:1fr;}}
+.check-item{display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 14px;border:1px solid rgba(201,185,154,0.12);background:rgba(255,255,255,0.02);transition:border-color 0.2s,background 0.2s;user-select:none;}
+.check-item:hover{border-color:rgba(212,168,83,0.3);background:rgba(212,168,83,0.04);}
+.check-item input[type=checkbox]{appearance:none;width:14px;height:14px;border:1px solid rgba(201,185,154,0.3);background:transparent;flex-shrink:0;position:relative;cursor:pointer;}
+.check-item input[type=checkbox]:checked{background:var(--accent);border-color:var(--accent);}
+.check-item input[type=checkbox]:checked::after{content:'';position:absolute;top:2px;left:4px;width:4px;height:7px;border:2px solid var(--black);border-top:none;border-left:none;transform:rotate(45deg);}
+.check-label{font-family:'Barlow',sans-serif;font-size:13px;font-weight:300;color:var(--off-white);}
+
+.radios{display:flex;gap:10px;flex-wrap:wrap;}
+.radio-item{display:flex;align-items:center;gap:8px;cursor:pointer;padding:9px 16px;border:1px solid rgba(201,185,154,0.12);background:rgba(255,255,255,0.02);transition:border-color 0.2s,background 0.2s;user-select:none;}
+.radio-item:hover{border-color:rgba(212,168,83,0.3);background:rgba(212,168,83,0.04);}
+.radio-item input[type=radio]{appearance:none;width:12px;height:12px;border:1px solid rgba(201,185,154,0.3);border-radius:50%;background:transparent;flex-shrink:0;position:relative;cursor:pointer;}
+.radio-item input[type=radio]:checked{border-color:var(--accent);}
+.radio-item input[type=radio]:checked::after{content:'';position:absolute;top:2px;left:2px;width:6px;height:6px;border-radius:50%;background:var(--accent);}
+.radio-label{font-family:'Barlow',sans-serif;font-size:13px;font-weight:300;color:var(--off-white);}
+
+.progress-bar{position:sticky;top:72px;z-index:50;background:rgba(17,17,17,0.97);border-bottom:1px solid rgba(201,185,154,0.1);padding:14px 60px;display:flex;align-items:center;gap:16px;}
+.pbar-track{flex:1;height:1px;background:rgba(201,185,154,0.15);}
+.pbar-fill{height:100%;background:var(--accent);transition:width 0.4s ease;width:0%;}
+.pbar-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.2em;color:var(--mid-gray);text-transform:uppercase;white-space:nowrap;}
+
+.form-footer{background:var(--near-black);border-top:1px solid rgba(201,185,154,0.15);padding:40px 60px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.footer-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--mid-gray);}
+.btn-submit{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--black);background:var(--accent);border:none;padding:16px 40px;cursor:pointer;transition:background 0.2s,transform 0.1s;}
+.btn-submit:hover{background:var(--sand);}
+.btn-submit:active{transform:scale(0.98);}
+
+.success-state{display:none;padding:100px 60px;text-align:center;}
+.success-icon{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--accent);margin-bottom:28px;}
+.success-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--off-white);margin-bottom:16px;}
+.success-msg{font-family:'Barlow',sans-serif;font-size:15px;font-weight:300;color:var(--light-gray);line-height:1.8;margin-bottom:40px;}
+.back-link{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(212,168,83,0.3);padding-bottom:2px;}
+
+footer{padding:48px 60px;border-top:1px solid rgba(201,185,154,0.1);}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;letter-spacing:0.12em;color:var(--white);}
+.footer-tagline{font-family:'Barlow',sans-serif;font-size:11px;letter-spacing:0.28em;color:var(--sand);text-transform:uppercase;margin-top:4px;}
+.footer-copy{font-family:'Barlow',sans-serif;font-size:12px;color:var(--mid-gray);}
+.footer-fine-print{font-family:'Barlow',sans-serif;font-size:11px;color:rgba(102,102,102,0.6);line-height:1.6;border-top:1px solid rgba(201,185,154,0.08);padding-top:20px;}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1);}
+.reveal.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-mark">LiVD</span>
+    <span class="nav-logo-sub">Get Outside. IRL</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#experiences">Experiences</a></li>
+    <li><a href="/#social">Community</a></li>
+    <li><a href="/#contact">Get In The Know</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <span class="hero-label reveal">LiVD · Approved Partner Application</span>
+  <h1 class="hero-title reveal">Become an <em>Approved</em><br>LiVD Partner</h1>
+  <p class="hero-desc reveal">We curate exceptional outdoor experiences for high net worth individuals, families, and business executives. This questionnaire helps us understand your operation and assess alignment with LiVD's standards.</p>
+</div>
+
+<div class="progress-bar">
+  <span class="pbar-label">Application · 8 Sections</span>
+  <div class="pbar-track"><div class="pbar-fill" id="pbar"></div></div>
+  <span class="pbar-label" id="pct">0%</span>
+</div>
+
+<form id="partnerForm" name="livd-partner" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="livd-partner">
+
+<div class="form-wrap" id="formBody">
+
+  <div class="section-block">
+    <div class="sec-header"><span class="sec-num">01</span><span class="sec-title">Your Operation</span></div>
+
+    <div class="contact-block">
+      <div class="contact-block-label">Primary Contact</div>
+      <div class="field-row" style="margin-bottom:16px">
+        <div class="field" style="margin-bottom:0"><label class="field-label">First Name</label><input type="text" name="first-name" placeholder="First" oninput="updateProgress()"></div>
+        <div class="field" style="margin-bottom:0"><label class="field-label">Last Name</label><input type="text" name="last-name" placeholder="Last" oninput="updateProgress()"></div>
+      </div>
+      <div class="field-row" style="margin-bottom:16px">
+        <div class="field" style="margin-bottom:0"><label class="field-label">Title / Role</label><input type="text" name="title" placeholder="e.g. Owner, Operations Director" oninput="updateProgress()"></div>
+        <div class="field" style="margin-bottom:0"><label class="field-label">Email</label><input type="email" name="email" placeholder="you@company.com" oninput="updateProgress()"></div>
+      </div>
+      <div class="field" style="margin-bottom:0"><label class="field-label">Phone</label><input type="tel" name="phone" placeholder="+1 (___) ___-____" oninput="updateProgress()"></div>
+    </div>
+
+    <div class="field"><label class="field-label">Business Name</label><input type="text" name="business-name" placeholder="Legal business name" oninput="updateProgress()"></div>
+    <div class="field-row">
+      <div class="field"><label class="field-label">Primary Location(s)</label><input type="text" name="location" placeholder="City, State / Country" oninput="updateProgress()"></div>
+      <div class="field"><label class="field-label">Years Operating</label><input type="number" name="years" placeholder="e.g. 8" min="0" oninput="updateProgress()"></div>
+    </div>
+    <div class="field">
+      <label class="field-label">Experience Type <span class="field-sub">Select all that apply</span></label>
+      <div class="checks">
+        <label class="check-item"><input type="checkbox" name="exp[]" value="Surfing" onchange="updateProgress()"><span class="check-label">Surfing</span></label>
+        <label class="check-item"><input type="checkbox" name="exp[]" value="Rock Climbing" onchange="updateProgress()"><span class="check-label">Rock Climbing</span></label>
+        <label class="check-item"><input type="checkbox" name="exp[]" value="Backcountry Ski/Snowboard" onchange="updateProgress()"><span class="check-label">Backcountry Ski / Snowboard</span></label>
+        <label class="check-item"><input type="checkbox" name="exp[]" value="Heli/Cat Skiing" onchange="updateProgress()"><span class="check-label">Heli / Cat Skiing</span></label>
+        <label class="check-item"><input type="checkbox" name="exp[]" value="Whitewater Rafting" onchange="updateProgress()"><span class="check-label">Whitewater Rafting</span></label>
+        <label class="check-item"><input type="checkbox" name="exp[]" value="Sport/Fly Fishing" onchange="updateProgress()"><span class="check-label">Sport Fishing / Fly Fishing</span></label>
+        <label class="check-item"><input type="checkbox" name="exp[]" value="Trekking/Mountaineering" onchange="updateProgress()"><span class="check-label">Trekking / Mountaineering</span></label>
+        <label class="check-item"><input type="checkbox" name="exp[]" value="Mountain Biking" onchange="updateProgress()"><span class="check-label">Mountain Biking</span></label>
+        <label class="check-item"><input type="checkbox" name="exp[]" value="Kite Surfing/Water Sports" onchange="updateProgress()"><span class="check-label">Kite Surfing / Water Sports</span></label>
+        <label class="check-item"><input type="checkbox" name="exp[]" value="Other" onchange="updateProgress()"><span class="check-label">Other</span></label>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label class="field-label">Maximum Group Size</label><input type="number" name="group-size" placeholder="e.g. 12" min="1" oninput="updateProgress()"></div>
+      <div class="field">
+        <label class="field-label">Operating Season</label>
+        <select name="season" onchange="updateProgress()">
+          <option value="" disabled selected>Select...</option>
+          <option>Year-round</option><option>Spring / Summer</option><option>Fall / Winter</option><option>Summer only</option><option>Winter only</option><option>Varies by location</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Licensed &amp; Insured?</label>
+      <div class="radios">
+        <label class="radio-item"><input type="radio" name="licensed" value="Yes" onchange="updateProgress()"><span class="radio-label">Yes — fully licensed and insured</span></label>
+        <label class="radio-item"><input type="radio" name="licensed" value="In progress" onchange="updateProgress()"><span class="radio-label">In progress</span></label>
+        <label class="radio-item"><input type="radio" name="licensed" value="No" onchange="updateProgress()"><span class="radio-label">No</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="sec-header"><span class="sec-num">02</span><span class="sec-title">Accommodations</span></div>
+    <div class="field">
+      <label class="field-label">Do you provide lodging?</label>
+      <div class="radios">
+        <label class="radio-item"><input type="radio" name="lodging" value="Yes" onchange="updateProgress()"><span class="radio-label">Yes</span></label>
+        <label class="radio-item"><input type="radio" name="lodging" value="No" onchange="updateProgress()"><span class="radio-label">No</span></label>
+        <label class="radio-item"><input type="radio" name="lodging" value="Partner properties" onchange="updateProgress()"><span class="radio-label">Partner properties available</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Accommodation Type <span class="field-sub">Select all that apply</span></label>
+      <div class="checks">
+        <label class="check-item"><input type="checkbox" name="accom[]" value="Private lodge/chalet" onchange="updateProgress()"><span class="check-label">Private lodge / chalet</span></label>
+        <label class="check-item"><input type="checkbox" name="accom[]" value="Luxury glamping" onchange="updateProgress()"><span class="check-label">Luxury glamping</span></label>
+        <label class="check-item"><input type="checkbox" name="accom[]" value="Private cabins" onchange="updateProgress()"><span class="check-label">Private cabins</span></label>
+        <label class="check-item"><input type="checkbox" name="accom[]" value="Boutique hotel" onchange="updateProgress()"><span class="check-label">Boutique hotel</span></label>
+        <label class="check-item"><input type="checkbox" name="accom[]" value="Live-aboard vessel" onchange="updateProgress()"><span class="check-label">Live-aboard vessel</span></label>
+        <label class="check-item"><input type="checkbox" name="accom[]" value="Base camp" onchange="updateProgress()"><span class="check-label">Base camp</span></label>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label class="field-label">Max Occupancy</label><input type="number" name="occupancy" placeholder="Guests" min="1" oninput="updateProgress()"></div>
+      <div class="field">
+        <label class="field-label">ADA / Accessibility</label>
+        <select name="accessibility" onchange="updateProgress()">
+          <option value="" disabled selected>Select...</option>
+          <option>Fully accessible</option><option>Partially accessible</option><option>Not accessible</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Bed Configurations <span class="field-sub">Select all that apply</span></label>
+      <div class="checks">
+        <label class="check-item"><input type="checkbox" name="beds[]" value="King" onchange="updateProgress()"><span class="check-label">King</span></label>
+        <label class="check-item"><input type="checkbox" name="beds[]" value="Queen" onchange="updateProgress()"><span class="check-label">Queen</span></label>
+        <label class="check-item"><input type="checkbox" name="beds[]" value="Twin/Bunk" onchange="updateProgress()"><span class="check-label">Twin / Bunk</span></label>
+        <label class="check-item"><input type="checkbox" name="beds[]" value="Flexible/custom" onchange="updateProgress()"><span class="check-label">Flexible / custom</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="sec-header"><span class="sec-num">03</span><span class="sec-title">Food &amp; Dining</span></div>
+    <div class="field">
+      <label class="field-label">Do you provide meals?</label>
+      <div class="radios">
+        <label class="radio-item"><input type="radio" name="meals" value="Yes included" onchange="updateProgress()"><span class="radio-label">Yes — included</span></label>
+        <label class="radio-item"><input type="radio" name="meals" value="Additional cost" onchange="updateProgress()"><span class="radio-label">Available at additional cost</span></label>
+        <label class="radio-item"><input type="radio" name="meals" value="No" onchange="updateProgress()"><span class="radio-label">No</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Dining Style <span class="field-sub">Select all that apply</span></label>
+      <div class="checks">
+        <label class="check-item"><input type="checkbox" name="dining[]" value="Private chef on-site" onchange="updateProgress()"><span class="check-label">Private chef — on-site</span></label>
+        <label class="check-item"><input type="checkbox" name="dining[]" value="Chef on request" onchange="updateProgress()"><span class="check-label">Chef available on request</span></label>
+        <label class="check-item"><input type="checkbox" name="dining[]" value="Catered/partner restaurant" onchange="updateProgress()"><span class="check-label">Catered / partner restaurant</span></label>
+        <label class="check-item"><input type="checkbox" name="dining[]" value="Camp-style" onchange="updateProgress()"><span class="check-label">Camp-style / outdoor cooking</span></label>
+        <label class="check-item"><input type="checkbox" name="dining[]" value="Self-catered" onchange="updateProgress()"><span class="check-label">Self-catered option</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Dietary Accommodations <span class="field-sub">Select all that apply</span></label>
+      <div class="checks">
+        <label class="check-item"><input type="checkbox" name="dietary[]" value="Kosher" onchange="updateProgress()"><span class="check-label">Kosher</span></label>
+        <label class="check-item"><input type="checkbox" name="dietary[]" value="Halal" onchange="updateProgress()"><span class="check-label">Halal</span></label>
+        <label class="check-item"><input type="checkbox" name="dietary[]" value="Vegan/Plant-based" onchange="updateProgress()"><span class="check-label">Vegan / Plant-based</span></label>
+        <label class="check-item"><input type="checkbox" name="dietary[]" value="Gluten-free" onchange="updateProgress()"><span class="check-label">Gluten-free</span></label>
+        <label class="check-item"><input type="checkbox" name="dietary[]" value="Allergy-specific" onchange="updateProgress()"><span class="check-label">Allergy-specific menus</span></label>
+        <label class="check-item"><input type="checkbox" name="dietary[]" value="None/limited" onchange="updateProgress()"><span class="check-label">None / limited</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="sec-header"><span class="sec-num">04</span><span class="sec-title">Staff &amp; Credentials</span></div>
+    <div class="field-row">
+      <div class="field"><label class="field-label">Guide-to-Guest Ratio</label><input type="text" name="guide-ratio" placeholder="e.g. 1:4" oninput="updateProgress()"></div>
+      <div class="field">
+        <label class="field-label">Background Checks?</label>
+        <select name="background-checks" onchange="updateProgress()">
+          <option value="" disabled selected>Select...</option>
+          <option>Yes — all staff</option><option>Yes — guides only</option><option>No</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Staff Certifications <span class="field-sub">Select all that apply</span></label>
+      <div class="checks">
+        <label class="check-item"><input type="checkbox" name="certs[]" value="WFR" onchange="updateProgress()"><span class="check-label">Wilderness First Responder (WFR)</span></label>
+        <label class="check-item"><input type="checkbox" name="certs[]" value="WFA" onchange="updateProgress()"><span class="check-label">Wilderness First Aid (WFA)</span></label>
+        <label class="check-item"><input type="checkbox" name="certs[]" value="AMGA/IFMGA" onchange="updateProgress()"><span class="check-label">AMGA / IFMGA Certified</span></label>
+        <label class="check-item"><input type="checkbox" name="certs[]" value="PSIA/AASI" onchange="updateProgress()"><span class="check-label">PSIA / AASI Certified</span></label>
+        <label class="check-item"><input type="checkbox" name="certs[]" value="USCG Captain" onchange="updateProgress()"><span class="check-label">USCG Licensed Captain</span></label>
+        <label class="check-item"><input type="checkbox" name="certs[]" value="CPR/AED" onchange="updateProgress()"><span class="check-label">CPR / AED Certified</span></label>
+        <label class="check-item"><input type="checkbox" name="certs[]" value="ACA/Swift Water" onchange="updateProgress()"><span class="check-label">ACA / Swift Water Rescue</span></label>
+        <label class="check-item"><input type="checkbox" name="certs[]" value="Other" onchange="updateProgress()"><span class="check-label">Other — describe below</span></label>
+      </div>
+    </div>
+    <div class="field"><label class="field-label">Languages Spoken by Staff</label><input type="text" name="languages" placeholder="e.g. English, Spanish, French" oninput="updateProgress()"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="sec-header"><span class="sec-num">05</span><span class="sec-title">Transportation</span></div>
+    <div class="field">
+      <label class="field-label">Ground Transportation Provided?</label>
+      <div class="radios">
+        <label class="radio-item"><input type="radio" name="transport" value="Yes" onchange="updateProgress()"><span class="radio-label">Yes</span></label>
+        <label class="radio-item"><input type="radio" name="transport" value="Additional cost" onchange="updateProgress()"><span class="radio-label">Available at additional cost</span></label>
+        <label class="radio-item"><input type="radio" name="transport" value="No" onchange="updateProgress()"><span class="radio-label">No</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Vehicle / Transport Types <span class="field-sub">Select all that apply</span></label>
+      <div class="checks">
+        <label class="check-item"><input type="checkbox" name="vehicles[]" value="Luxury SUV/4x4" onchange="updateProgress()"><span class="check-label">Luxury SUV / 4x4</span></label>
+        <label class="check-item"><input type="checkbox" name="vehicles[]" value="Sprinter/Van" onchange="updateProgress()"><span class="check-label">Mercedes Sprinter / Van</span></label>
+        <label class="check-item"><input type="checkbox" name="vehicles[]" value="Helicopter" onchange="updateProgress()"><span class="check-label">Helicopter</span></label>
+        <label class="check-item"><input type="checkbox" name="vehicles[]" value="Snowcat" onchange="updateProgress()"><span class="check-label">Cat (snowcat)</span></label>
+        <label class="check-item"><input type="checkbox" name="vehicles[]" value="Private boat/yacht" onchange="updateProgress()"><span class="check-label">Private boat / yacht</span></label>
+        <label class="check-item"><input type="checkbox" name="vehicles[]" value="Float plane" onchange="updateProgress()"><span class="check-label">Float plane</span></label>
+        <label class="check-item"><input type="checkbox" name="vehicles[]" value="Standard shuttle" onchange="updateProgress()"><span class="check-label">Standard shuttle</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Airport Pickup Available?</label>
+      <div class="radios">
+        <label class="radio-item"><input type="radio" name="airport" value="Yes" onchange="updateProgress()"><span class="radio-label">Yes</span></label>
+        <label class="radio-item"><input type="radio" name="airport" value="On request" onchange="updateProgress()"><span class="radio-label">On request</span></label>
+        <label class="radio-item"><input type="radio" name="airport" value="No" onchange="updateProgress()"><span class="radio-label">No</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="sec-header"><span class="sec-num">06</span><span class="sec-title">Media Services</span></div>
+    <div class="field">
+      <label class="field-label">Photography / Videography Offered?</label>
+      <div class="radios">
+        <label class="radio-item"><input type="radio" name="media" value="In-house" onchange="updateProgress()"><span class="radio-label">Yes — in-house</span></label>
+        <label class="radio-item"><input type="radio" name="media" value="Partnered" onchange="updateProgress()"><span class="radio-label">Yes — partnered</span></label>
+        <label class="radio-item"><input type="radio" name="media" value="On request" onchange="updateProgress()"><span class="radio-label">Available on request</span></label>
+        <label class="radio-item"><input type="radio" name="media" value="No" onchange="updateProgress()"><span class="radio-label">No</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Content Ownership</label>
+      <div class="radios">
+        <label class="radio-item"><input type="radio" name="content-ownership" value="Client owns all" onchange="updateProgress()"><span class="radio-label">Client owns all content</span></label>
+        <label class="radio-item"><input type="radio" name="content-ownership" value="Shared rights" onchange="updateProgress()"><span class="radio-label">Shared usage rights</span></label>
+        <label class="radio-item"><input type="radio" name="content-ownership" value="Negotiable" onchange="updateProgress()"><span class="radio-label">Negotiable</span></label>
+      </div>
+    </div>
+    <div class="field"><label class="field-label">Portfolio / Reel Link <span class="field-sub">Optional</span></label><input type="url" name="portfolio" placeholder="https://" oninput="updateProgress()"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="sec-header"><span class="sec-num">07</span><span class="sec-title">Rates &amp; Logistics</span></div>
+    <div class="field-row">
+      <div class="field">
+        <label class="field-label">Rate Structure</label>
+        <select name="rate-structure" onchange="updateProgress()">
+          <option value="" disabled selected>Select...</option>
+          <option>Per person / per day</option><option>Flat rate per group / day</option><option>Custom / package-based</option><option>Combination</option>
+        </select>
+      </div>
+      <div class="field"><label class="field-label">Approximate Day Rate (USD)</label><input type="text" name="day-rate" placeholder="e.g. $2,500 per group" oninput="updateProgress()"></div>
+    </div>
+    <div class="field"><label class="field-label">Minimum Booking Requirement</label><input type="text" name="min-booking" placeholder="e.g. 2 guests, 3-night minimum" oninput="updateProgress()"></div>
+    <div class="field">
+      <label class="field-label">Custom Itinerary Collaboration?</label>
+      <div class="radios">
+        <label class="radio-item"><input type="radio" name="custom-itinerary" value="Yes" onchange="updateProgress()"><span class="radio-label">Yes — welcome it</span></label>
+        <label class="radio-item"><input type="radio" name="custom-itinerary" value="Case by case" onchange="updateProgress()"><span class="radio-label">On a case-by-case basis</span></label>
+        <label class="radio-item"><input type="radio" name="custom-itinerary" value="Fixed only" onchange="updateProgress()"><span class="radio-label">Fixed packages only</span></label>
+      </div>
+    </div>
+    <div class="field"><label class="field-label">Deposit &amp; Cancellation Policy <span class="field-sub">Brief summary</span></label><textarea name="cancellation" placeholder="e.g. 50% deposit at booking. Full refund 60+ days out. 50% refund 30–59 days. No refund within 30 days." oninput="updateProgress()"></textarea></div>
+  </div>
+
+  <div class="section-block">
+    <div class="sec-header"><span class="sec-num">08</span><span class="sec-title">Tell Us More</span></div>
+    <div class="field"><label class="field-label">What makes your operation exceptional?</label><textarea name="exceptional" style="min-height:120px" placeholder="Tell us what sets you apart. What do your clients say? What do you do that no one else does?" oninput="updateProgress()"></textarea></div>
+    <div class="field"><label class="field-label">Website</label><input type="url" name="website" placeholder="https://" oninput="updateProgress()"></div>
+    <div class="field"><label class="field-label">Instagram Handle</label><input type="text" name="instagram" placeholder="@yourhandle" oninput="updateProgress()"></div>
+    <div class="field"><label class="field-label">References <span class="field-sub">3 past premium clients — optional but encouraged</span></label><textarea name="references" placeholder="Name · Email · Relationship" oninput="updateProgress()"></textarea></div>
+    <div class="field"><label class="field-label">Anything else we should know?</label><textarea name="anything-else" placeholder="Awards, press, notable expeditions, long-term partnerships..." oninput="updateProgress()"></textarea></div>
+  </div>
+
+</div>
+
+<div class="form-footer" id="formFooter">
+  <p class="footer-note">All applications reviewed personally by the LiVD team.</p>
+  <button type="submit" class="btn-submit">Submit Application</button>
+</div>
+</form>
+
+<div class="success-state" id="successState">
+  <div class="success-icon">✦</div>
+  <div class="success-title">Application Received</div>
+  <p class="success-msg">Thank you for your interest in becoming an approved LiVD partner.<br>We review every application personally and will be in touch within 5–7 business days.</p>
+  <a href="/" class="back-link">← Back to LiVD</a>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">LiVD</div>
+      <div class="footer-tagline">Get Outside. IRL</div>
+    </div>
+    <div class="footer-copy">&copy; 2026 LiVD LLC &middot; All Rights Reserved</div>
+  </div>
+  <div class="footer-fine-print">All content, services, and partnerships associated with LiVD LLC are protected. Partner inquiries: info@livdirl.com</div>
+</footer>
+
+<script>
+var nav = document.getElementById('mainNav');
+window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+var reveals = document.querySelectorAll('.reveal');
+var observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(function(el){ observer.observe(el); });
+
+function updateProgress(){
+  var inputs = document.querySelectorAll('input[type=text],input[type=email],input[type=tel],input[type=url],input[type=number],select,textarea');
+  var checks = document.querySelectorAll('input[type=checkbox]:checked,input[type=radio]:checked');
+  var filled = 0;
+  inputs.forEach(function(i){ if(i.value.trim()) filled++; });
+  filled += checks.length;
+  var total = inputs.length + (document.querySelectorAll('input[type=checkbox],input[type=radio]').length / 3);
+  var pct = Math.min(100, Math.round((filled / total) * 100));
+  document.getElementById('pbar').style.width = pct + '%';
+  document.getElementById('pct').textContent = pct + '%';
+}
+
+document.getElementById('partnerForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('formBody').style.display = 'none';
+  document.getElementById('formFooter').style.display = 'none';
+  document.getElementById('successState').style.display = 'block';
+});
+</script>
+</body>
+</html>

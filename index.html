@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LiVD — Get Outside. IRL.</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon_64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon_180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --near-black: #111111;
+    --charcoal: #1c1c1c;
+    --mid-gray: #666;
+    --light-gray: #aaa;
+    --off-white: #f0ede8;
+    --cream: #e8e4dc;
+    --sand: #c9b99a;
+    --accent: #d4a853;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--off-white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 28px 60px;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+    transition: background 0.4s, padding 0.4s;
+  }
+  nav.scrolled { background: rgba(10,10,10,0.97); padding: 18px 60px; }
+  .nav-logo { display: flex; flex-direction: column; line-height: 1; }
+  .nav-logo-mark { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 40px; letter-spacing: 0.12em; color: var(--white); line-height: 1; }
+  .nav-logo-sub { font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.28em; color: var(--sand); text-transform: uppercase; margin-top: 5px; }
+  .nav-links { display: flex; gap: 48px; list-style: none; }
+  .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--light-gray); text-decoration: none; transition: color 0.3s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* HERO */
+  #home { position: relative; width: 100%; height: 100vh; min-height: 700px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.92) 100%), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1800&q=80') center/cover no-repeat;
+    transform: scale(1.05); transition: transform 8s ease-out;
+  }
+  .hero-bg.loaded { transform: scale(1); }
+  .hero-grain { position: absolute; inset: 0; pointer-events: none; opacity: 0.4; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); }
+  .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 40px; opacity: 0; transform: translateY(30px); animation: heroReveal 1.2s 0.3s cubic-bezier(0.16,1,0.3,1) forwards; }
+  @keyframes heroReveal { to { opacity: 1; transform: translateY(0); } }
+  .hero-logo-wrap { display: inline-block; margin: 0 auto 32px; }
+  .hero-logo-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(90px, 15vw, 150px); letter-spacing: -0.02em; color: var(--white); display: block; line-height: 1; filter: drop-shadow(0 4px 40px rgba(0,0,0,0.5)); }
+  .hero-logo-tagline { font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0.45em; color: var(--sand); text-transform: uppercase; display: block; margin-top: 10px; }
+  .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2.5vw, 26px); font-weight: 300; font-style: italic; color: var(--cream); letter-spacing: 0.05em; line-height: 1.6; max-width: 560px; margin: 32px auto 48px; }
+  .hero-tagline em { font-style: normal; color: var(--accent); font-weight: 400; }
+  .hero-cta { display: inline-flex; align-items: center; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--white); text-decoration: none; border: 1px solid rgba(255,255,255,0.25); padding: 16px 40px; transition: all 0.35s; position: relative; overflow: hidden; }
+  .hero-cta::before { content: ''; position: absolute; inset: 0; background: var(--accent); transform: translateX(-101%); transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); }
+  .hero-cta:hover::before { transform: translateX(0); }
+  .hero-cta:hover { border-color: var(--accent); color: var(--black); }
+  .hero-cta span { position: relative; z-index: 1; }
+  .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; animation: fadeIn 1s 1.5s forwards; }
+  @keyframes fadeIn { to { opacity: 0.5; } }
+  .hero-scroll span { font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--light-gray); }
+  .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--light-gray), transparent); animation: scrollPulse 2s infinite; }
+  @keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.8; } }
+
+  /* SECTIONS */
+  section { padding: 120px 60px; }
+  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.45em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: block; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 300; line-height: 1.1; color: var(--white); margin-bottom: 24px; }
+  .section-title em { font-style: italic; color: var(--sand); }
+  .section-body { font-size: 15px; font-weight: 300; line-height: 1.85; color: var(--sand); max-width: 560px; }
+
+  /* ABOUT */
+  #about { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; min-height: 80vh; }
+  .manifesto-visual { position: relative; overflow: hidden; min-height: 600px; }
+  .manifesto-visual img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 6s ease; }
+  .manifesto-visual:hover img { transform: scale(1.04); }
+  .manifesto-overlay { position: absolute; inset: 0; background: linear-gradient(to right, transparent 50%, var(--black) 100%), linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.4) 100%); }
+  .manifesto-text { padding: 100px 80px; display: flex; flex-direction: column; justify-content: center; background: var(--near-black); }
+  .manifesto-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.5vw, 34px); font-weight: 300; font-style: italic; color: var(--cream); line-height: 1.5; margin-bottom: 40px; padding-left: 28px; border-left: 2px solid var(--accent); }
+  .manifesto-body { font-size: 15px; line-height: 1.9; color: var(--sand); margin-bottom: 16px; }
+
+  /* EXPERIENCES */
+  #experiences { background: var(--near-black); }
+  .experiences-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 72px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .experiences-header .section-body { margin-bottom: 0; }
+  .experiences-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 1200px; margin: 0 auto; }
+  .exp-card { position: relative; overflow: hidden; aspect-ratio: 3/4; cursor: pointer; background: var(--charcoal); }
+  .exp-card:first-child { grid-row: span 2; aspect-ratio: auto; }
+  .exp-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); filter: brightness(0.75) saturate(0.85); }
+  .exp-card:hover img { transform: scale(1.06); filter: brightness(0.65) saturate(0.75); }
+  .exp-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%); }
+  .exp-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 32px 28px; transform: translateY(8px); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+  .exp-card:hover .exp-content { transform: translateY(0); }
+  .exp-category { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: block; }
+  .exp-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.5vw, 30px); font-weight: 400; color: var(--white); line-height: 1.2; margin-bottom: 12px; }
+  .exp-desc { font-size: 13px; font-weight: 300; color: var(--sand); line-height: 1.6; opacity: 0; max-height: 0; transition: opacity 0.4s, max-height 0.4s; }
+  .exp-card:hover .exp-desc { opacity: 1; max-height: 80px; }
+  .exp-arrow { position: absolute; top: 28px; right: 28px; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(-6px); transition: all 0.4s; }
+  .exp-card:hover .exp-arrow { opacity: 1; transform: translateY(0); }
+
+  /* STATS */
+  .stats-band { background: var(--charcoal); padding: 64px 60px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .stat-item { padding: 40px; text-align: center; position: relative; }
+  .stat-item::after { content: ''; position: absolute; right: 0; top: 20%; bottom: 20%; width: 1px; background: rgba(255,255,255,0.08); }
+  .stat-item:last-child::after { display: none; }
+  .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: var(--white); line-height: 1; margin-bottom: 8px; }
+  .stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sand); }
+
+  /* SOCIAL */
+  #social { text-align: center; padding: 120px 60px; background: var(--black); position: relative; overflow: hidden; }
+  #social::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(212,168,83,0.06) 0%, transparent 70%); pointer-events: none; }
+  .social-header { margin-bottom: 64px; }
+  .social-cta-block { display: flex; flex-direction: column; align-items: center; gap: 24px; margin-top: 48px; }
+  .social-prompt { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2vw, 28px); font-style: italic; font-weight: 300; color: var(--cream); max-width: 600px; line-height: 1.6; }
+  .social-hashtag { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); }
+  .instagram-btn { display: inline-flex; align-items: center; gap: 12px; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--white); text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 16px 44px; transition: all 0.35s; margin-top: 12px; }
+  .instagram-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* CONTACT */
+  #contact { background: var(--near-black); display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+  .contact-visual { position: relative; min-height: 560px; overflow: hidden; }
+  .contact-visual img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.5) saturate(0.7); }
+  .contact-visual-overlay { position: absolute; inset: 0; background: linear-gradient(to right, transparent 40%, var(--near-black) 100%); }
+  .contact-form-area { padding: 100px 80px; display: flex; flex-direction: column; justify-content: center; }
+  .contact-intro { font-size: 15px; line-height: 1.85; color: var(--sand); margin-bottom: 40px; max-width: 420px; }
+  .contact-email { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-style: italic; color: var(--accent); text-decoration: none; display: block; margin-bottom: 40px; transition: color 0.3s; }
+  .contact-email:hover { color: var(--cream); }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .contact-form input, .contact-form textarea { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: var(--off-white); font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 300; padding: 16px 20px; outline: none; transition: border-color 0.3s; resize: none; }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--mid-gray); font-size: 13px; letter-spacing: 0.05em; }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); }
+  .contact-submit { display: inline-flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--black); background: var(--accent); border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; align-self: flex-start; margin-top: 8px; }
+  .contact-submit:hover { background: var(--sand); }
+
+  /* FOOTER */
+  footer { background: var(--black); padding: 48px 60px 36px; display: flex; flex-direction: column; align-items: center; gap: 24px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .footer-top { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.1em; color: var(--white); }
+  .footer-tagline { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sand); margin-top: 4px; }
+  .footer-copy { font-size: 12px; color: var(--sand); letter-spacing: 0.05em; }
+  .footer-fine-print { font-size: 11px; color: var(--sand); letter-spacing: 0.03em; text-align: center; max-width: 700px; line-height: 1.7; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 20px; width: 100%; }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.35s; }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 16px 20px; }
+    nav.scrolled { padding: 12px 20px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.15em; }
+    .nav-logo-mark { font-size: 28px; }
+    .nav-logo-sub { font-size: 9px; }
+    section { padding: 80px 24px; }
+    #about { grid-template-columns: 1fr; }
+    .manifesto-visual { min-height: 300px; }
+    .manifesto-text { padding: 60px 32px; }
+    .experiences-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .experiences-grid { grid-template-columns: 1fr 1fr; }
+    .exp-card:first-child { grid-row: span 1; }
+    .stats-band { grid-template-columns: repeat(2,1fr); padding: 40px 24px; }
+    .stat-item::after { display: none; }
+    #contact { grid-template-columns: 1fr; }
+    .contact-visual { min-height: 260px; }
+    .contact-form-area { padding: 60px 32px; }
+    footer { padding: 40px 24px 28px; }
+    .footer-top { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="nav-logo">
+    <span class="nav-logo-mark">LiVD</span>
+    <span class="nav-logo-sub">Get Outside. IRL</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experiences">Experiences</a></li>
+    <li><a href="#social">Community</a></li>
+    <li><a href="#contact">Get In The Know</a></li>
+  </ul>
+</nav>
+
+<section id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-logo-wrap">
+      <span class="hero-logo-text">LiVD</span>
+      <span class="hero-logo-tagline">Get Outside. IRL</span>
+    </div>
+    <p class="hero-tagline">It's better <em>in real life.</em><br>For those who'd rather be doing.</p>
+    <a href="#experiences" class="hero-cta"><span>Explore Experiences</span></a>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="manifesto-visual">
+    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=900&q=80" alt="Outdoor Adventure" loading="lazy">
+    <div class="manifesto-overlay"></div>
+  </div>
+  <div class="manifesto-text">
+    <span class="section-label reveal">Who We Are</span>
+    <blockquote class="manifesto-quote reveal reveal-delay-1">"Experiences for those who'd rather be doing."</blockquote>
+    <p class="manifesto-body reveal reveal-delay-2">LiVD exists for the individuals, communities, and businesses who want to breathe — who trade screens for summits, commutes for currents, and boardrooms for backcountry.</p>
+    <p class="manifesto-body reveal reveal-delay-3">We curate the outdoor world's best experiences: surf sessions at dawn, singletrack descents through old growth, kite runs on open water, chalk-dusted granite faces, powder days that justify the drive. Vetted guides. Real terrain. No pretense.</p>
+    <p class="manifesto-body reveal" style="transition-delay:0.5s;margin-top:16px;">LiVD is a movement before it's a marketplace. We're building a community of people who know that the best stories don't happen in front of a screen — they happen outside. IRL.</p>
+  </div>
+</section>
+
+<section id="experiences">
+  <div class="experiences-header">
+    <div>
+      <span class="section-label reveal">LiVD Experiences</span>
+      <h2 class="section-title reveal reveal-delay-1">Life at <em>full tilt.</em></h2>
+    </div>
+    <p class="section-body reveal reveal-delay-2">From Pacific swells to high alpine exposure — we connect you to the experiences worth talking about. Boutique. Curated. Unforgettable.</p>
+  </div>
+  <div class="experiences-grid">
+
+    <div class="exp-card reveal">
+      <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=700&q=80" alt="Surfing">
+      <div class="exp-overlay"></div>
+      <div class="exp-arrow"><svg width="14" height="14" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+      <div class="exp-content">
+        <span class="exp-category">Ocean</span>
+        <h3 class="exp-title">Surf &amp; Kite</h3>
+        <p class="exp-desc">Dawn patrol sessions, multi-day surf trips, and open-water kite instruction with world-class coaches along the Southern California coast and beyond.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?w=600&q=80" alt="Rock Climbing">
+      <div class="exp-overlay"></div>
+      <div class="exp-arrow"><svg width="14" height="14" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+      <div class="exp-content">
+        <span class="exp-category">Vertical</span>
+        <h3 class="exp-title">Climbing</h3>
+        <p class="exp-desc">Sport, trad, bouldering — guided ascents for all levels across Joshua Tree, Red Rocks, and beyond.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal reveal-delay-2">
+      <img src="https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?w=600&q=80" alt="Mountain Biking">
+      <div class="exp-overlay"></div>
+      <div class="exp-arrow"><svg width="14" height="14" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+      <div class="exp-content">
+        <span class="exp-category">Trail</span>
+        <h3 class="exp-title">Mountain Biking</h3>
+        <p class="exp-desc">Singletrack descents, enduro stages, and guided flow trail experiences in the best bike parks and backcountry on the West Coast.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1452626212852-811d58933cae?w=600&q=80" alt="Snow Sports">
+      <div class="exp-overlay"></div>
+      <div class="exp-arrow"><svg width="14" height="14" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+      <div class="exp-content">
+        <span class="exp-category">Mountain</span>
+        <h3 class="exp-title">Snow &amp; Ski</h3>
+        <p class="exp-desc">Powder days, backcountry touring, and private snowboard instruction at the Sierra Nevada's best terrain.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal reveal-delay-2">
+      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80" alt="Adventure Travel">
+      <div class="exp-overlay"></div>
+      <div class="exp-arrow"><svg width="14" height="14" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+      <div class="exp-content">
+        <span class="exp-category">Travel</span>
+        <h3 class="exp-title">Adventure Travel</h3>
+        <p class="exp-desc">Curated multi-day itineraries — international surf trips, alpine expeditions, and bucket-list journeys with vetted local operators.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80" alt="Desert Adventure">
+      <div class="exp-overlay"></div>
+      <div class="exp-arrow"><svg width="14" height="14" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+      <div class="exp-content">
+        <span class="exp-category">Desert</span>
+        <h3 class="exp-title">Dirt Bike &amp; Off-Road</h3>
+        <p class="exp-desc">Wide-open desert terrain, guided dirt bike rides, side-by-side buggy adventures, and dune runs across the Sonoran and Mojave. Raw. Fast. Unforgettable.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="stat-item reveal"><div class="stat-number">10+</div><div class="stat-label">Disciplines</div></div>
+  <div class="stat-item reveal reveal-delay-1"><div class="stat-number">&#8734;</div><div class="stat-label">Stories Worth Telling</div></div>
+  <div class="stat-item reveal reveal-delay-2"><div class="stat-number">1</div><div class="stat-label">Life — Live It</div></div>
+  <div class="stat-item reveal reveal-delay-3"><div class="stat-number">IRL</div><div class="stat-label">Always</div></div>
+</div>
+
+<section id="social">
+  <div class="social-header">
+    <span class="section-label reveal">Community</span>
+    <h2 class="section-title reveal reveal-delay-1">What's your <em>#LiVDmoment?</em></h2>
+  </div>
+  <div class="social-cta-block">
+    <p class="social-prompt reveal">Tell us your trip of a lifetime. Your best experience ever. The thing you still talk about at dinner. Tag the place, the people, the guide who made it happen.</p>
+    <span class="social-hashtag reveal">#LiVDmoment &nbsp;&middot;&nbsp; #GetOutsideIRL &nbsp;&middot;&nbsp; @livd_irl</span>
+    <a href="https://instagram.com/livd_irl" target="_blank" class="instagram-btn reveal">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Follow on Instagram
+    </a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-visual">
+    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=700&q=80" alt="Water Droplet" loading="lazy">
+    <div class="contact-visual-overlay"></div>
+  </div>
+  <div class="contact-form-area">
+    <span class="section-label reveal">Get In The Know</span>
+    <h2 class="section-title reveal reveal-delay-1">If you know,<br><em>you know.</em></h2>
+    <p class="contact-intro reveal reveal-delay-2">Drop your email and get hip when we launch — new experiences, vetted providers, and community. Low-dose drops, direct to your inbox. No noise. Just the good stuff.</p>
+    <a href="/cdn-cgi/l/email-protection#244d4a424b64484d52404d56480a474b49" class="contact-email reveal reveal-delay-3">info&#64;livdirl.com</a>
+    <form class="contact-form reveal" name="livd-leads" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <textarea name="message" rows="3" placeholder="What's your adventure? Tell us where you want to go."></textarea>
+      <button type="submit" class="contact-submit">Get In The Know</button>
+    </form>
+    <p id="form-success" style="display:none;color:var(--accent);font-size:13px;letter-spacing:0.1em;margin-top:12px;">&#10003; You're on the list. Stay outside.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">LiVD</div>
+      <div class="footer-tagline">Get Outside. IRL</div>
+    </div>
+    <div class="footer-copy">&copy; 2026 LiVD LLC &middot; All Rights Reserved</div>
+  </div>
+  <div class="footer-fine-print">
+    All content, services, and partnerships associated with LiVD LLC are protected. Clients are served directly. All corporate and partnership inquiries should be directed to info&#64;livdirl.com.
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  var nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 60); });
+  document.getElementById('heroBg').classList.add('loaded');
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function(el) { observer.observe(el); });
+  function handleSubmit(e) {
