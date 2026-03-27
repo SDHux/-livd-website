@@ -187,6 +187,16 @@
     footer { padding: 40px 24px 28px; }
     .footer-top { flex-direction: column; gap: 16px; text-align: center; }
   }
+
+  .lang-sw{position:relative;margin-left:24px;flex-shrink:0;}
+  .lang-btn{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--light-gray);background:none;border:1px solid rgba(201,185,154,0.3);padding:5px 10px;cursor:pointer;transition:all 0.3s;white-space:nowrap;}
+  .lang-btn:hover{color:var(--white);border-color:var(--accent);}
+  .lang-dd{position:absolute;top:calc(100% + 8px);right:0;background:rgba(17,17,17,0.98);border:1px solid rgba(201,185,154,0.2);min-width:140px;display:none;flex-direction:column;z-index:300;}
+  .lang-dd.open{display:flex;}
+  .lo{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--light-gray);padding:10px 14px;cursor:pointer;border:none;background:none;text-align:left;width:100%;transition:all 0.2s;}
+  .lo:hover{color:var(--white);background:rgba(212,168,83,0.08);}
+  .lo.active{color:var(--accent);}
+  @media(max-width:768px){.lang-sw{display:none;}}
 </style>
 </head>
 <body>
@@ -197,11 +207,21 @@
     <span class="nav-logo-sub">Get Outside. IRL</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experiences">Experiences</a></li>
-    <li><a href="#social">Community</a></li>
-    <li><a href="#contact">Get In The Know</a></li>
+    <li><a href="#about" data-i18n="nav_about">About</a></li>
+    <li><a href="#experiences" data-i18n="nav_experiences">Experiences</a></li>
+    <li><a href="#social" data-i18n="nav_community">Community</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Get In The Know</a></li>
   </ul>
+  <div class="lang-sw" id="langSW">
+    <button class="lang-btn" onclick="toggleLangMenu()"><span id="langCode">EN</span> &#9663;</button>
+    <div class="lang-dd" id="langDD">
+      <button class="lo active" data-lang="en" onclick="setLang('en')">English</button>
+      <button class="lo" data-lang="fr" onclick="setLang('fr')">Francais</button>
+      <button class="lo" data-lang="es" onclick="setLang('es')">Espanol</button>
+      <button class="lo" data-lang="pt" onclick="setLang('pt')">Portugues</button>
+      <button class="lo" data-lang="ja" onclick="setLang('ja')">Japanese</button>
+    </div>
+  </div>
 </nav>
 
 <section id="home">
@@ -210,7 +230,7 @@
   <div class="hero-content">
     <div class="hero-logo-wrap">
       <span class="hero-logo-text">LiVD</span>
-      <span class="hero-logo-tagline">Get Outside. IRL</span>
+      <span class="hero-logo-tagline" data-i18n="hero_tagline">Get Outside. IRL</span>
     </div>
     <p class="hero-tagline">It's better <em>in real life.</em><br>For those who'd rather be doing.</p>
     <a href="#experiences" class="hero-cta"><span>Explore Experiences</span></a>
@@ -227,21 +247,21 @@
     <div class="manifesto-overlay"></div>
   </div>
   <div class="manifesto-text">
-    <span class="section-label reveal">Who We Are</span>
+    <span class="section-label reveal" data-i18n="about_label">Who We Are</span>
     <blockquote class="manifesto-quote reveal reveal-delay-1">"Experiences for those who'd rather be doing."</blockquote>
-    <p class="manifesto-body reveal reveal-delay-2">LiVD exists for the individuals, communities, and businesses who want to breathe, who trade screens for summits, commutes for currents, and boardrooms for backcountry.</p>
+    <p class="manifesto-body reveal reveal-delay-2">LiVD exists for the individuals, communities, and businesses who want to breathe — who trade screens for summits, commutes for currents, and boardrooms for backcountry.</p>
     <p class="manifesto-body reveal reveal-delay-3">We curate the outdoor world's best experiences: surf sessions at dawn, singletrack descents through old growth, kite runs on open water, chalk-dusted granite faces, powder days that justify the drive. Vetted guides. Real terrain. No pretense.</p>
-    <p class="manifesto-body reveal" style="transition-delay:0.5s;margin-top:16px;">LiVD is a movement before it's a marketplace. We're building a community of people who know that the best stories don't happen in front of a screen they happen outside. IRL.</p>
+    <p class="manifesto-body reveal" style="transition-delay:0.5s;margin-top:16px;">LiVD is a movement before it's a marketplace. We're building a community of people who know that the best stories don't happen in front of a screen — they happen outside. IRL.</p>
   </div>
 </section>
 
 <section id="experiences">
   <div class="experiences-header">
     <div>
-      <span class="section-label reveal">LiVD Experiences</span>
+      <span class="section-label reveal" data-i18n="exp_label">LiVD Experiences</span>
       <h2 class="section-title reveal reveal-delay-1">Life at <em>full tilt.</em></h2>
     </div>
-    <p class="section-body reveal reveal-delay-2">From Pacific swells to high alpine exposure, we connect you to the experiences worth talking about. Boutique. Curated. Unforgettable.</p>
+    <p class="section-body reveal reveal-delay-2">From Pacific swells to high alpine exposure — we connect you to the experiences worth talking about. Boutique. Curated. Unforgettable.</p>
   </div>
   <div class="experiences-grid">
 
@@ -263,7 +283,7 @@
       <div class="exp-content">
         <span class="exp-category">Vertical</span>
         <h3 class="exp-title">Climbing</h3>
-        <p class="exp-desc">Sport, trad, bouldering, guided ascents for all levels across Joshua Tree, Red Rocks, and beyond.</p>
+        <p class="exp-desc">Sport, trad, bouldering — guided ascents for all levels across Joshua Tree, Red Rocks, and beyond.</p>
       </div>
     </div>
 
@@ -296,7 +316,7 @@
       <div class="exp-content">
         <span class="exp-category">Travel</span>
         <h3 class="exp-title">Adventure Travel</h3>
-        <p class="exp-desc">Curated multi-day itineraries, international surf trips, alpine expeditions, and bucket-list journeys with vetted local operators.</p>
+        <p class="exp-desc">Curated multi-day itineraries — international surf trips, alpine expeditions, and bucket-list journeys with vetted local operators.</p>
       </div>
     </div>
 
@@ -323,7 +343,7 @@
 
 <section id="social">
   <div class="social-header">
-    <span class="section-label reveal">Community</span>
+    <span class="section-label reveal" data-i18n="community_label">Community</span>
     <h2 class="section-title reveal reveal-delay-1">What's your <em>#LiVDmoment?</em></h2>
   </div>
   <div class="social-cta-block">
@@ -342,15 +362,15 @@
     <div class="contact-visual-overlay"></div>
   </div>
   <div class="contact-form-area">
-    <span class="section-label reveal">Get In The Know</span>
+    <span class="section-label reveal" data-i18n="contact_label">Get In The Know</span>
     <h2 class="section-title reveal reveal-delay-1">If you know,<br><em>you know.</em></h2>
-    <p class="contact-intro reveal reveal-delay-2">Drop your email and get hip when we launch new experiences, vetted providers, and community. Low-dose drops, direct to your inbox. No noise. Just the good stuff.</p>
-    <a href="/cdn-cgi/l/email-protection#1e777078715e7277687a776c72307d7173" class="contact-email reveal reveal-delay-3">info&#64;livdirl.com</a>
+    <p class="contact-intro reveal reveal-delay-2">Drop your email and get hip when we launch — new experiences, vetted providers, and community. Low-dose drops, direct to your inbox. No noise. Just the good stuff.</p>
+    <a href="/cdn-cgi/l/email-protection#a4cdcac2cbe4c8cdd2c0cdd6c88ac7cbc9" class="contact-email reveal reveal-delay-3">info&#64;livdirl.com</a>
     <form class="contact-form reveal" name="livd-leads" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="name" placeholder="Your Name" data-i18n-ph="ph_name" required>
+      <input type="email" name="email" placeholder="Email Address" data-i18n-ph="ph_email" required>
       <textarea name="message" rows="3" placeholder="What's your adventure? Tell us where you want to go."></textarea>
-      <button type="submit" class="contact-submit">Get In The Know</button>
+      <button type="submit" class="contact-submit"><span data-i18n="contact_submit">Get In The Know</span></button>
     </form>
     <p id="form-success" style="display:none;color:var(--accent);font-size:13px;letter-spacing:0.1em;margin-top:12px;">&#10003; You're on the list. Stay outside.</p>
   </div>
@@ -360,7 +380,7 @@
   <div class="footer-top">
     <div>
       <div class="footer-logo">LiVD</div>
-      <div class="footer-tagline">Get Outside. IRL</div>
+      <div class="footer-tagline" data-i18n="hero_tagline">Get Outside. IRL</div>
     </div>
     <div class="footer-copy">&copy; 2026 LiVD LLC &middot; All Rights Reserved</div>
   </div>
@@ -373,5 +393,27 @@
   var nav = document.getElementById('mainNav');
   window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 60); });
   document.getElementById('heroBg').classList.add('loaded');
-  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
-  function handleSubmit(e) {
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function(el) { observer.observe(el); });
+
+  // ── LANGUAGE SWITCHER ─────────────────────────────────────
+  var T={
+    en:{a:"About",b:"Experiences",c:"Community",d:"Get In The Know",e:"Get Outside. IRL",f:"Who We Are",g:"LiVD Experiences",h:"Community",i:"Get In The Know",j:"Your Name",k:"Email Address",l:"Get In The Know",m:"EN"},
+    fr:{a:"A Propos",b:"Experiences",c:"Communaute",d:"Restez Informe",e:"Sortez. Dans la Vraie Vie.",f:"Qui Nous Sommes",g:"Experiences LiVD",h:"Communaute",i:"Restez Informe",j:"Votre Nom",k:"Adresse Email",l:"Restez Informe",m:"FR"},
+    es:{a:"Nosotros",b:"Experiencias",c:"Comunidad",d:"Mantente Informado",e:"Sal Afuera. En La Vida Real.",f:"Quienes Somos",g:"Experiencias LiVD",h:"Comunidad",i:"Mantente Informado",j:"Tu Nombre",k:"Correo Electronico",l:"Mantente Informado",m:"ES"},
+    pt:{a:"Sobre Nos",b:"Experiencias",c:"Comunidade",d:"Fique por Dentro",e:"Saia para a Vida Real.",f:"Quem Somos",g:"Experiencias LiVD",h:"Comunidade",i:"Fique por Dentro",j:"Seu Nome",k:"Endereco de Email",l:"Fique por Dentro",m:"PT"},
+    ja:{a:"&#31169;&#12383;&#12385;",b:"&#20307;&#39443;",c:"&#12467;&#12511;&#12517;&#12491;&#12486;&#12451;",d:"&#26368;&#26032;&#24773;&#22577;",e:"&#22806;&#12408;&#20986;&#12424;&#12358;",f:"&#31169;&#12383;&#12385;&#12395;&#12388;&#12356;&#12390;",g:"LiVD&#20307;&#39443;",h:"&#12467;&#12511;&#12517;&#12491;&#12486;&#12451;",i:"&#26368;&#26032;&#24773;&#22577;",j:"&#12362;&#21517;&#21069;",k:"&#12513;&#12540;&#12523;",l:"&#36865;&#20449;",m:"JP"}
+  };
+  var keys={nav_about:"a",nav_experiences:"b",nav_community:"c",nav_contact:"d",hero_tagline:"e",about_label:"f",exp_label:"g",community_label:"h",contact_label:"i",ph_name:"j",ph_email:"k",contact_submit:"l"};
+  var lang=localStorage.getItem("livd_lang")||"en";
+  function toggleLangMenu(){document.getElementById("langDD").classList.toggle("open");}
+  document.addEventListener("click",function(e){var s=document.getElementById("langSW");if(s&&!s.contains(e.target))document.getElementById("langDD").classList.remove("open");});
+  function setLang(l){lang=l;localStorage.setItem("livd_lang",l);applyT();document.getElementById("langDD").classList.remove("open");document.querySelectorAll(".lo").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-lang")===l);});}
+  function applyT(){var t=T[lang]||T.en;document.getElementById("langCode").textContent=t.m;document.querySelectorAll("[data-i18n]").forEach(function(el){var k=keys[el.getAttribute("data-i18n")];if(k&&t[k]!==undefined)el.innerHTML=t[k];});document.querySelectorAll("[data-i18n-ph]").forEach(function(el){var k=keys[el.getAttribute("data-i18n-ph")];if(k&&t[k]!==undefined)el.placeholder=t[k];});}
+  applyT();
+  // ─────────────────────────────────────────────────────────
+
+    function handleSubmit(e) {
