@@ -188,15 +188,14 @@
     .footer-top { flex-direction: column; gap: 16px; text-align: center; }
   }
 
-  .lang-sw{position:relative;margin-left:24px;flex-shrink:0;}
-  .lang-btn{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--light-gray);background:none;border:1px solid rgba(201,185,154,0.3);padding:5px 10px;cursor:pointer;transition:all 0.3s;white-space:nowrap;}
-  .lang-btn:hover{color:var(--white);border-color:var(--accent);}
-  .lang-dd{position:absolute;top:calc(100% + 8px);right:0;background:rgba(17,17,17,0.98);border:1px solid rgba(201,185,154,0.2);min-width:140px;display:none;flex-direction:column;z-index:300;}
-  .lang-dd.open{display:flex;}
-  .lo{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--light-gray);padding:10px 14px;cursor:pointer;border:none;background:none;text-align:left;width:100%;transition:all 0.2s;}
-  .lo:hover{color:var(--white);background:rgba(212,168,83,0.08);}
-  .lo.active{color:var(--accent);}
-  @media(max-width:768px){.lang-sw{display:none;}}
+  .lang-sw{position:relative;margin-left:20px;flex-shrink:0}
+  .lang-btn{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--light-gray);background:none;border:1px solid rgba(201,185,154,0.3);padding:5px 10px;cursor:pointer;transition:all 0.3s}
+  .lang-btn:hover{color:var(--white);border-color:var(--accent)}
+  .lang-dd{position:absolute;top:calc(100% + 8px);right:0;background:rgba(17,17,17,0.98);border:1px solid rgba(201,185,154,0.2);min-width:140px;display:none;flex-direction:column;z-index:300}
+  .lang-dd.open{display:flex}
+  .lo{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--light-gray);padding:10px 14px;cursor:pointer;border:none;background:none;text-align:left;width:100%;transition:all 0.2s}
+  .lo:hover{color:var(--white);background:rgba(212,168,83,0.08)}
+  .lo.active{color:var(--accent)}
 </style>
 </head>
 <body>
@@ -365,7 +364,7 @@
     <span class="section-label reveal" data-i18n="contact_label">Get In The Know</span>
     <h2 class="section-title reveal reveal-delay-1">If you know,<br><em>you know.</em></h2>
     <p class="contact-intro reveal reveal-delay-2">Drop your email and get hip when we launch — new experiences, vetted providers, and community. Low-dose drops, direct to your inbox. No noise. Just the good stuff.</p>
-    <a href="/cdn-cgi/l/email-protection#a4cdcac2cbe4c8cdd2c0cdd6c88ac7cbc9" class="contact-email reveal reveal-delay-3">info&#64;livdirl.com</a>
+    <a href="/cdn-cgi/l/email-protection#cea7a0a8a18ea2a7b8aaa7bca2e0ada1a3" class="contact-email reveal reveal-delay-3">info&#64;livdirl.com</a>
     <form class="contact-form reveal" name="livd-leads" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
       <input type="text" name="name" placeholder="Your Name" data-i18n-ph="ph_name" required>
       <input type="email" name="email" placeholder="Email Address" data-i18n-ph="ph_email" required>
@@ -389,31 +388,24 @@
   </div>
 </footer>
 
+<script>
+var T={
+  en:{nav_about:"About",nav_experiences:"Experiences",nav_community:"Community",nav_contact:"Get In The Know",hero_tagline:"Get Outside. IRL",about_label:"Who We Are",exp_label:"LiVD Experiences",community_label:"Community",contact_label:"Get In The Know",ph_name:"Your Name",ph_email:"Email Address",contact_submit:"Get In The Know",code:"EN"},
+  fr:{nav_about:"A Propos",nav_experiences:"Experiences",nav_community:"Communaute",nav_contact:"Restez Informe",hero_tagline:"Sortez. Dans la Vraie Vie.",about_label:"Qui Nous Sommes",exp_label:"Experiences LiVD",community_label:"Communaute",contact_label:"Restez Informe",ph_name:"Votre Nom",ph_email:"Adresse Email",contact_submit:"Restez Informe",code:"FR"},
+  es:{nav_about:"Nosotros",nav_experiences:"Experiencias",nav_community:"Comunidad",nav_contact:"Mantente Informado",hero_tagline:"Sal Afuera. En La Vida Real.",about_label:"Quienes Somos",exp_label:"Experiencias LiVD",community_label:"Comunidad",contact_label:"Mantente Informado",ph_name:"Tu Nombre",ph_email:"Correo Electronico",contact_submit:"Mantente Informado",code:"ES"},
+  pt:{nav_about:"Sobre Nos",nav_experiences:"Experiencias",nav_community:"Comunidade",nav_contact:"Fique por Dentro",hero_tagline:"Saia para a Vida Real.",about_label:"Quem Somos",exp_label:"Experiencias LiVD",community_label:"Comunidade",contact_label:"Fique por Dentro",ph_name:"Seu Nome",ph_email:"Endereco de Email",contact_submit:"Fique por Dentro",code:"PT"},
+  ja:{nav_about:"&#31169;&#12383;&#12385;",nav_experiences:"&#20307;&#39443;",nav_community:"&#12467;&#12511;&#12517;&#12491;&#12486;&#12451;",nav_contact:"&#26368;&#26032;&#24773;&#22577;",hero_tagline:"&#22806;&#12408;&#20986;&#12424;&#12358;",about_label:"&#31169;&#12383;&#12385;&#12395;&#12388;&#12356;&#12390;",exp_label:"LiVD&#20307;&#39443;",community_label:"&#12467;&#12511;&#12517;&#12491;&#12486;&#12451;",contact_label:"&#26368;&#26032;&#24773;&#22577;",ph_name:"&#12362;&#21517;&#21069;",ph_email:"&#12513;&#12540;&#12523;",contact_submit:"&#36865;&#20449;",code:"JP"}
+};
+var _lang=localStorage.getItem("livd_lang")||"en";
+function toggleLangMenu(){document.getElementById("langDD").classList.toggle("open");}
+document.addEventListener("click",function(e){var s=document.getElementById("langSW");if(s&&!s.contains(e.target))document.getElementById("langDD").classList.remove("open");});
+function setLang(l){_lang=l;localStorage.setItem("livd_lang",l);_applyT();document.getElementById("langDD").classList.remove("open");document.querySelectorAll(".lo").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-lang")===l);});}
+function _applyT(){var t=T[_lang]||T.en;document.getElementById("langCode").textContent=t.code;document.querySelectorAll("[data-i18n]").forEach(function(el){var k=el.getAttribute("data-i18n");if(t[k]!==undefined)el.innerHTML=t[k];});document.querySelectorAll("[data-i18n-ph]").forEach(function(el){var k=el.getAttribute("data-i18n-ph");if(t[k]!==undefined)el.placeholder=t[k];});}
+document.addEventListener("DOMContentLoaded",function(){_applyT();});
+</script>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   var nav = document.getElementById('mainNav');
   window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 60); });
   document.getElementById('heroBg').classList.add('loaded');
-  var reveals = document.querySelectorAll('.reveal');
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(function(el) { observer.observe(el); });
-
-  // ── LANGUAGE SWITCHER ─────────────────────────────────────
-  var T={
-    en:{a:"About",b:"Experiences",c:"Community",d:"Get In The Know",e:"Get Outside. IRL",f:"Who We Are",g:"LiVD Experiences",h:"Community",i:"Get In The Know",j:"Your Name",k:"Email Address",l:"Get In The Know",m:"EN"},
-    fr:{a:"A Propos",b:"Experiences",c:"Communaute",d:"Restez Informe",e:"Sortez. Dans la Vraie Vie.",f:"Qui Nous Sommes",g:"Experiences LiVD",h:"Communaute",i:"Restez Informe",j:"Votre Nom",k:"Adresse Email",l:"Restez Informe",m:"FR"},
-    es:{a:"Nosotros",b:"Experiencias",c:"Comunidad",d:"Mantente Informado",e:"Sal Afuera. En La Vida Real.",f:"Quienes Somos",g:"Experiencias LiVD",h:"Comunidad",i:"Mantente Informado",j:"Tu Nombre",k:"Correo Electronico",l:"Mantente Informado",m:"ES"},
-    pt:{a:"Sobre Nos",b:"Experiencias",c:"Comunidade",d:"Fique por Dentro",e:"Saia para a Vida Real.",f:"Quem Somos",g:"Experiencias LiVD",h:"Comunidade",i:"Fique por Dentro",j:"Seu Nome",k:"Endereco de Email",l:"Fique por Dentro",m:"PT"},
-    ja:{a:"&#31169;&#12383;&#12385;",b:"&#20307;&#39443;",c:"&#12467;&#12511;&#12517;&#12491;&#12486;&#12451;",d:"&#26368;&#26032;&#24773;&#22577;",e:"&#22806;&#12408;&#20986;&#12424;&#12358;",f:"&#31169;&#12383;&#12385;&#12395;&#12388;&#12356;&#12390;",g:"LiVD&#20307;&#39443;",h:"&#12467;&#12511;&#12517;&#12491;&#12486;&#12451;",i:"&#26368;&#26032;&#24773;&#22577;",j:"&#12362;&#21517;&#21069;",k:"&#12513;&#12540;&#12523;",l:"&#36865;&#20449;",m:"JP"}
-  };
-  var keys={nav_about:"a",nav_experiences:"b",nav_community:"c",nav_contact:"d",hero_tagline:"e",about_label:"f",exp_label:"g",community_label:"h",contact_label:"i",ph_name:"j",ph_email:"k",contact_submit:"l"};
-  var lang=localStorage.getItem("livd_lang")||"en";
-  function toggleLangMenu(){document.getElementById("langDD").classList.toggle("open");}
-  document.addEventListener("click",function(e){var s=document.getElementById("langSW");if(s&&!s.contains(e.target))document.getElementById("langDD").classList.remove("open");});
-  function setLang(l){lang=l;localStorage.setItem("livd_lang",l);applyT();document.getElementById("langDD").classList.remove("open");document.querySelectorAll(".lo").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-lang")===l);});}
-  function applyT(){var t=T[lang]||T.en;document.getElementById("langCode").textContent=t.m;document.querySelectorAll("[data-i18n]").forEach(function(el){var k=keys[el.getAttribute("data-i18n")];if(k&&t[k]!==undefined)el.innerHTML=t[k];});document.querySelectorAll("[data-i18n-ph]").forEach(function(el){var k=keys[el.getAttribute("data-i18n-ph")];if(k&&t[k]!==undefined)el.placeholder=t[k];});}
-  applyT();
-  // ─────────────────────────────────────────────────────────
-
-    function handleSubmit(e) {
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+  function handleSubmit(e) {
